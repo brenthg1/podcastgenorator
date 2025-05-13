@@ -1,0 +1,18 @@
+name: Run Podcastor Generator
+
+on:
+  workflow_dispatch:
+
+jobs:
+  podcastor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Run the podcastor generator
+        uses: ./PODCASTGENERATOR
+        with:
+          email: ${{ github.actor }}@users.noreply.github.com
+          name: ${{ github.actor }}
